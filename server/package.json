@@ -1,0 +1,23 @@
+{
+  "name": "@cuboid/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@cuboid/shared": "*",
+    "@colyseus/core": "0.18.19",
+    "@colyseus/schema": "5.0.41",
+    "@colyseus/ws-transport": "0.18.4",
+    "express": "5.3.0",
+    "tsx": "4.23.14"
+  },
+  "devDependencies": {
+    "@colyseus/sdk": "0.18.5",
+    "@types/express": "5.0.6",
+    "@types/node": "22.19.1"
+  }
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#040508" />
+    <title>Cuboid</title>
+  </head>
+  <body>
+    <canvas id="view"></canvas>
+    <div id="ui">
+      <div id="vignette"></div>
+      <div id="flash"></div>
+      <div id="crosshair"></div>
+      <div id="hint"></div>
+      <div id="card" aria-live="polite">
+        <div class="sym"></div>
+        <div class="over"></div>
+        <div class="name"></div>
+        <div class="meta"></div>
+      </div>
+      <div id="subtitles" aria-live="polite"><span class="who">Anfitrión</span><span class="line"></span></div>
+      <div id="lobby" hidden>
+        <div class="head">Sala de espera</div>
+        <ul class="roster"></ul>
+        <div class="note"></div>
+      </div>
+      <div id="dead" hidden>
+        <strong>Tu celda fue sellada.</strong>
+        <span>Ahora observas. W A S D para moverte, Espacio y C para subir y bajar.</span>
+      </div>
+      <div id="lockHint" hidden>Haz clic para volver a la celda</div>
+      <pre id="debug" hidden></pre>
+
+      <section id="title">
+        <div class="mark" aria-hidden="true"></div>
+        <h1>CUBOID</h1>
+        <p class="tag">Despiertas en un cuarto sellado. El aire se agota. Al otro lado del metal, alguien golpea.</p>
+        <form id="joinForm" autocomplete="off">
+          <input id="name" maxlength="16" placeholder="Tu nombre" aria-label="Tu nombre" />
+          <button type="submit">Entrar</button>
+        </form>
+        <p id="joinError" role="alert"></p>
+        <ul class="controls">
+          <li><kbd>W A S D</kbd> moverse</li>
+          <li><kbd>Shift</kbd> correr (gasta aire)</li>
+          <li><kbd>Espacio</kbd> saltar</li>
+          <li><kbd>C</kbd> agacharse</li>
+          <li><kbd>E</kbd> tomar, soltar, mantener</li>
+          <li><kbd>Clic</kbd> golpear el muro</li>
+          <li><kbd>Clic der.</kbd> empujar (solo en algunas pruebas)</li>
+          <li><kbd>Enter</kbd> listo en la sala de espera</li>
+        </ul>
+        <p class="small" id="touchNote">Prototipo para 1 a 4 jugadores. Requiere teclado y mouse.</p>
+      </section>
+
+      <section id="results" hidden>
+        <h2>Fin del ciclo</h2>
+        <table>
+          <thead>
+            <tr><th>Celda</th><th>Jugador</th><th>Resultado</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button id="again" type="button">Nueva partida</button>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

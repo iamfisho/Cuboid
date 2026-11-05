@@ -1,6 +1,6 @@
 # Cuboid: documento de concepto
 
-> Borrador v0.2: temática, ambientación, mecánicas base y dirección técnica. Todo es propuesta y está abierto a cambios.
+> Borrador v0.3: temática, ambientación, mecánicas base, dirección técnica y prototipo jugable. Todo es propuesta y está abierto a cambios.
 
 > *Despiertas en un cuarto cúbico sin puertas visibles. Las paredes zumban. Se enciende una sola arista con una luz fría. Al otro lado del metal, alguien golpea tres veces. Luego el piso empieza a moverse.*
 
@@ -14,6 +14,8 @@
 | **Formato** | Partidas cerradas: cada sesión tiene inicio, clímax y final |
 | **Perspectiva** | Primera persona en 3D |
 | **Plataforma** | Navegador web en PC, con teclado y mouse |
+| **Voz** | Sin chat de voz. Los jugadores se comunican con golpes, notas e intercomunicador de texto |
+| **Contacto físico** | Empujar solo está permitido en algunas pruebas, y cada una lo dice en sus reglas |
 
 ## 1. Premisa
 
@@ -88,9 +90,10 @@ Cada celda tiene una **reserva de aire** que baja con el tiempo. Superar una pru
 
 **Valores iniciales para probar** (hay que ajustarlos en pruebas de juego):
 
-- Se empieza con 3 minutos de aire.
+- Se empieza con 4 minutos de aire.
 - Superar una prueba da entre 30 segundos y 4 minutos, según sus aristas.
-- Correr gasta aire más rápido. Esto obliga a elegir entre velocidad y reserva.
+- Fallar una prueba cuesta 10 segundos por arista.
+- Correr gasta aire al doble de velocidad. Esto obliga a elegir entre velocidad y reserva.
 
 ## 6. Comunicación como mecánica
 
@@ -100,7 +103,7 @@ La información asimétrica es la base del juego: **cada celda ve solo una parte
 |---|---|---|
 | **Golpes en el muro** | Siempre | Solo ritmo, sin palabras. El sonido es posicional: se oye desde el muro de donde viene. Los jugadores inventan sus propios códigos. |
 | **Rendija de notas** | Con celdas contiguas | Texto corto con un límite de caracteres que tarda en llegar. Mientras escribes, no te mueves. |
-| **Intercomunicador** | Solo cuando el Anfitrión lo habilita | Puede tener estática o retraso, o ser escuchado por todos. |
+| **Intercomunicador** | Solo cuando el Anfitrión lo habilita | Mensajes de texto cortos. Pueden llegar con retraso, cortarse o ser leídos por todos. |
 | **Cara a cara** | Cuando los muros se abren y las celdas se unen | Es raro y es el momento de mayor tensión. |
 
 ## 7. Eliminación sin expulsión: los Ecos
@@ -135,16 +138,16 @@ Esta es una propuesta para una partida de unos **20 minutos con 8 a 12 jugadores
 Las celdas de un sector se abren en cadena y un muro de luz blanca avanza desde un extremo. Lo que alcanza, lo elimina. Cada jugador puede **cerrar escotillas detrás de sí** para frenar el muro, pero eso también deja atrapados a quienes vienen detrás.
 
 ### Llave única (Arena, 7 aristas, 4 jugadores)
-Cuatro jugadores entran a una celda central por cuatro puertas. En el centro hay una sola llave. Quien la toma y corre a su puerta escapa de la prueba solo. Si en cambio la colocan en el panel central, las cuatro puertas se abren, pero el panel exige que los cuatro lo sostengan 30 segundos mientras se activan trampas en el piso.
+Cuatro jugadores entran a una celda central por cuatro puertas. En el centro hay una sola llave. Quien la toma y corre a su celda escapa de la prueba solo. Si en cambio la colocan en el panel central, todos salen, pero el panel exige que los cuatro sostengan sus manijas 30 segundos mientras se activan trampas en el piso. **Aquí se permite empujar:** quien recibe un empujón suelta la llave. Al acabar el tiempo, quien no haya salido queda sellado.
 
 ### Presión (Cristal, 3 aristas, 4 jugadores)
-Cada jugador tiene en su celda una balanza y pesos pesados que debe cargar mientras el techo baja. Las cuatro balanzas están conectadas y **la suma total debe ser exacta**. Cada uno ve una sola pista del número correcto. Para resolverla hay que comunicarse solo con golpes y notas.
+Cada jugador tiene en su celda una balanza y cinco pesos (1, 1, 2, 3 y 5) que debe cargar mientras el techo baja. Las balanzas están conectadas: **todas deben marcar su peso exacto al mismo tiempo**. Ninguna celda conoce su propio número, solo el de otra celda. Para resolverla hay que comunicarse con golpes, y el sonido llega desde la dirección del muro donde se golpeó.
 
 ### Válvula (Cadena, 4 aristas, 2 jugadores)
-Dos celdas contiguas comparten una válvula de aire. Para superar la prueba hay que mantener el equilibrio durante 2 minutos mientras el piso se inclina y obliga a moverse para no caer. Quien suelta la válvula para salvarse le roba aire al otro.
+Dos celdas comparten una válvula de aire. La presión cambia sola, y cada jugador puede jalarla hacia su lado: mientras esté de su lado, recibe aire de la otra celda. Para superar la prueba hay que mantener el equilibrio 40 segundos mientras el piso se inclina y arrastra al jugador lejos de la válvula. Quien acapara la presión se queda con el aire del otro, pero ambos fallan la prueba.
 
 ### El sustituto (Espejo, 6 aristas, 6 jugadores)
-El Anfitrión anuncia: *"Puede haber un simulacro entre ustedes"*. Los seis tienen 90 segundos para encerrar a alguien en una cápsula, y para meterlo hay que alcanzarlo y empujarlo. Si encierran al simulacro, todos ganan aire. Si se equivocan, el encerrado pierde y el simulacro gana. **El giro:** a veces no hay simulacro, y el Anfitrión no mintió.
+El Anfitrión anuncia: *"Puede haber un simulacro entre ustedes"*. Los seis tienen 90 segundos para encerrar a alguien en una cápsula, y para meterlo hay que alcanzarlo y empujarlo (aquí se permite empujar). Si encierran al simulacro, todos ganan aire. Si se equivocan, el encerrado pierde y el simulacro gana. **El giro:** a veces no hay simulacro, y el Anfitrión no mintió.
 
 ### Gravedad (Hierro, 5 aristas, 3 jugadores)
 La celda empieza a rotar y la gravedad cambia de muro cada pocos segundos. Hay que llegar a la escotilla antes de que se cierre. Cada escotilla que se abre **cierra la de otra celda**.
@@ -159,9 +162,9 @@ No hay anuncio. Solo hay un botón, un contador y silencio. Las reglas existen y
 | Acción | Control |
 |---|---|
 | Moverse / correr | WASD / Shift (correr gasta aire) |
-| Saltar / agacharse | Espacio / Ctrl |
+| Saltar / agacharse | Espacio / C (no Ctrl: Ctrl+W cierra la pestaña del navegador) |
 | Interactuar, agarrar o cargar | E |
-| Empujar a otro jugador | Clic derecho |
+| Empujar a otro jugador | Clic derecho, solo en las pruebas que lo permiten |
 | Golpear el muro | Clic izquierdo sobre un muro |
 | Escribir nota | E sobre la rendija |
 
@@ -186,10 +189,9 @@ No hay anuncio. Solo hay un botón, un contador y silencio. Las reglas existen y
 | Capa | Elección | Por qué |
 |---|---|---|
 | **Cliente 3D** | Three.js + TypeScript | Es el estándar de 3D en web, ligero y con control total. Las celdas cúbicas son geometría simple. |
-| **Física** | Rapier (WASM) | Es rápida y determinista, y corre igual en el cliente y en el servidor. |
+| **Física** | Colisiones propias de cajas alineadas; Rapier (WASM) más adelante | Todo el Cuboide son cajas alineadas a los ejes, así que el prototipo usa un controlador propio compartido entre cliente y servidor. Rapier entra cuando haya objetos con física real. |
 | **Build** | Vite | Arranque inmediato y recarga en caliente. |
 | **Servidor** | Node.js + Colyseus | Es un framework multijugador basado en salas, con emparejamiento y sincronización de estado. Encaja directo con partidas cerradas. |
-| **Voz** (después del prototipo) | WebRTC, por ejemplo con LiveKit | Permite voz por proximidad y canales que el Anfitrión controla. |
 
 Si se prefiere un motor más completo de fábrica, la alternativa es **Babylon.js**, que trae física y herramientas incluidas a cambio de más peso.
 
@@ -203,6 +205,7 @@ Navegador (Three.js + Rapier)         WebSocket          Servidor de partida (Co
 ```
 
 - **Servidor autoritativo.** En la web el cliente es fácil de inspeccionar y modificar, así que todas las reglas, el aire y los resultados se deciden en el servidor. El cliente solo predice su propio movimiento e interpola el de los demás.
+- **Simplificación del prototipo:** el movimiento lo simula el cliente y el servidor lo valida. Rechaza velocidades imposibles y cruzar puertas cerradas, y regresa al jugador a su última posición válida. Mover la física al servidor queda para después del prototipo.
 - **El diseño también protege contra trampas.** Cada cliente recibe solamente el estado de su celda y de las contiguas abiertas. El aislamiento, además de ser parte del juego, reduce el ancho de banda y hace imposible ver a través de los muros con trampas, porque esa información nunca llega al navegador.
 - **El render aprovecha el aislamiento.** Solo se dibujan la celda actual y las vecinas abiertas. Con iluminación precalculada y aristas emisivas, el costo gráfico es bajo.
 
@@ -230,21 +233,24 @@ La idea es tomar el **espíritu** de estas obras y construir una identidad propi
 ## 14. Preguntas abiertas
 
 1. **Escala:** ¿8, 12 o 16 jugadores por partida? Se recomienda empezar con 8 por el costo del servidor y para facilitar el emparejamiento.
-2. **Voz:** ¿chat de voz real o solo golpes y texto? La voz sube mucho la tensión, pero complica la moderación.
-3. **Contacto físico:** ¿empujar a otros jugadores debe estar en todas las pruebas o solo en algunas?
-4. **Lore:** ¿qué hipótesis seguimos? ¿Qué hay realmente al otro lado de la Salida?
-5. **Progresión:** además de los fragmentos de memoria, ¿habrá cosméticos o rangos entre partidas?
+2. **Lore:** ¿qué hipótesis seguimos? ¿Qué hay realmente al otro lado de la Salida?
+3. **Progresión:** además de los fragmentos de memoria, ¿habrá cosméticos o rangos entre partidas?
 
-## 15. Siguiente paso: prototipo jugable
+## 15. Prototipo jugable
 
-El prototipo busca validar el núcleo del juego: moverse en primera persona, estar aislado, comunicarse con límites y decidir bajo presión.
+El prototipo valida el núcleo del juego: moverse en primera persona, estar aislado, comunicarse con límites y decidir bajo presión. Cómo correrlo está en el [README](../README.md).
 
-- **Alcance:** 4 jugadores en 4 celdas alrededor de una celda central, en el navegador.
-- **Movimiento:** controles en primera persona con física básica.
-- **Comunicación:** solo golpes con audio posicional.
-- **Recurso:** aire como único recurso.
-- **Pruebas:** *Presión* (Cristal), *Válvula* (Cadena) y *Llave única* (Arena).
-- **Arte:** cubos grises con aristas emisivas.
-- **Fuera del alcance:** reconfiguración, Ecos, lore y voz.
+**Qué incluye:**
 
-Si después de jugarlo los jugadores discuten por quién se quedó con la llave, el núcleo funciona.
+- **Partida:** de 1 a 4 jugadores en 4 celdas alrededor de una celda central, en el navegador. La partida se cierra cuando todos están listos.
+- **Movimiento:** primera persona con colisiones, correr, saltar y agacharse. El techo que baja obliga a agacharse.
+- **Lenguaje del cubo:** el color, las aristas y los vértices de cada celda anuncian cada prueba.
+- **Comunicación:** golpes en los muros con audio posicional, que todos oyen desde el punto donde se golpeó.
+- **Recurso:** el aire, con medidor en el muro, respiración y visión que se oscurece.
+- **Pruebas:** *Presión* (Cristal), *Válvula* (Cadena) y *Llave única* (Arena, la única donde se puede empujar).
+- **Anfitrión:** subtítulos y un panel grabado con las reglas, un mapa del sector y la cuenta regresiva.
+- **Servidor:** autoritativo en reglas, aire y resultados. Cada jugador solo recibe lo que hay en su zona.
+
+**Fuera del alcance por ahora:** reconfiguración del Cuboide, Ecos, notas, intercomunicador, lore, reconexión y la física en el servidor.
+
+**Siguiente paso:** jugarlo con 4 personas y ajustar los valores de aire, tiempos y dificultad. Si los jugadores terminan discutiendo por quién se quedó con la llave, el núcleo funciona.
